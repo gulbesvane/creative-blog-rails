@@ -1,0 +1,30 @@
+<h1>Edit your article</h1>
+
+<%# display errors when creating new article if any present %>
+<% if @article.errors.any?%>
+    <h3>Fix error(s) to save the article:</h3>
+    <ul>
+        <%# iterate through each error message and display in unordered list%>
+        <% @article.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%# use article model to fill in the form entries with the article data being edited and submit to update action%>
+<%= form_with(model: @article, local: true, data: { turbo: false })  do |f| %>
+    <p>
+        <%= f.label :title %><br/>
+        <%= f.text_field :title %>
+    </p>
+    <p>
+        <%= f.label :description %><br/>
+        <%= f.text_area :description %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+
+<% end %>
+
+<%= button_to 'Cancel edit', articles_path %>
