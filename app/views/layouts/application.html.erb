@@ -11,10 +11,7 @@
   </head>
 
   <body>
-    <%# display message on successfully saving new article %>
-    <% flash.each do |notice, flash_msg|%>
-      <%= flash_msg%>
-    <% end %>
+    <%= render 'layouts/msg' %>
     <%= yield %>
   </body>
 </html>

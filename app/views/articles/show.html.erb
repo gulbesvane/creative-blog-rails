@@ -3,6 +3,6 @@
 <p><strong>Title: </strong><%= @article.title %></p>
 <p><strong>Description: </strong><%= @article.description %></p>
 
-<%= button_to 'Edit article', edit_article_path(@article) %> <br>
+<%= button_to 'Edit article', edit_article_path(@article), method: :get%> <br>
 <%= button_to 'Delete', article_path(@article), method: :delete, onclick: "return confirm('Confirm?')" %><br>
-<%= button_to 'All articles', articles_path %>
+<%= button_to 'All articles', articles_path, method: :get %>

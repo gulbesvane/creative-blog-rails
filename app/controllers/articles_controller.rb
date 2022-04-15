@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-
+    # on start, find relevant article in the article table for methods show,edit,update and destroy using find_article method
+    before_action :find_article, only: [:show, :edit, :update, :destroy]
     def show 
-        @article = Article.find(params[:id])
     end
 
     def index
@@ -14,13 +14,11 @@ class ArticlesController < ApplicationController
     end
 
     def edit
-        # find article from Article table with the id passed in the parameters
-        @article = Article.find(params[:id])
     end
 
     def create
         #creating new article with required title and description
-        @article = Article.new(params.require(:article).permit(:title, :description))
+        @article = Article.new(article_parameters)
         if @article.save
             # display message when article is saved
             flash[:notice] = "Congratulations, your article was saved!"
@@ -32,9 +30,7 @@ class ArticlesController < ApplicationController
     end
 
     def update
-        # find the article being updated in the Article table and assigne to article variable
-        @article = Article.find(params[:id])
-        if @article.update(params.require(:article).permit(:title, :description))
+        if @article.update(article_parameters)
             flash[:notice] = "Success, article was updated!"
             redirect_to @article
         else
@@ -43,10 +39,17 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
-        # find the article being deleted in the Article table and assigne to article variable
-        @article = Article.find(params[:id])
         @article.destroy
         redirect_to articles_path
     end
 
+    private
+
+    def find_article
+        @article = Article.find(params[:id])
+    end
+
+    def article_parameters
+        params.require(:article).permit(:title, :description)
+    end
 end

@@ -1,0 +1,10 @@
+<%# display errors when creating new article if any present %>
+<% if @article.errors.any?%>
+    <h3>Fix error(s) to save the article:</h3>
+    <ul>
+        <%# iterate through each error message and display in unordered list%>
+        <% @article.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    </ul>
+<% end %>
