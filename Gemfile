@@ -75,3 +75,7 @@ group :production do
   gem 'pg'
 
 end
+
+# using active_storage_validations get to validate image attachement to the form
+gem 'active_storage_validations'
+

@@ -1,4 +1,9 @@
+<h1>Manage articles</h1>
+
 <div class="container">
+    <p>
+    <%= link_to "Create new article", new_article_path, class: "btn btn-outline-light btn-md" %>
+    </p>
     <% @articles.each do |article| %>
         <div class="row justify-content-center">
             <div class="col-md-8 mt-4">
@@ -10,7 +15,9 @@
                     </div>
                     <h5 class="card-title mt-2"><%= article.title %></h5>
                     <p class="card-text"><%= truncate(article.description, length:100) %></p>
-                    <%= button_to 'MORE', article_path(article), class: "btn btn-outline-light btn-md", method: :get %>
+                    <%= link_to "View", article_path(article), class: "btn btn-outline-light btn-md" %>
+                    <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-light btn-md" %>
+                    <%= link_to "Delete", article_path(article), class: "btn btn-outline-light btn-md", method: :delete, data: {confirm: "Are you sure?"} %>
                 </div>
                 <div class="card-footer text-muted">
                     <small>Created <%= time_ago_in_words(article.created_at) %> ago</small>

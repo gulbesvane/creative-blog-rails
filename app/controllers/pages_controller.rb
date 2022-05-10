@@ -2,6 +2,10 @@ class PagesController < ApplicationController
     def home
     end
 
-    def about
+    def manager
+        @articles = Article.all
+    end
+
+    def contact
     end
 end

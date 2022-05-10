@@ -1,0 +1,23 @@
+<!-- Start of Navigation bar -->
+<nav class="navbar mb-5 navbar-expand-lg navbar-dark fixed-top" id="full-nav">
+    <div class="container-sm">
+        <a href="#"></a>
+        <button class="navbar-toggler ms-auto" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ms-auto" id="navbar">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item ms-auto">
+                    <%= link_to "HOME", root_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item ms-auto">
+                    <%= link_to "ARTICLES", articles_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item ms-auto">
+                    <%= link_to "CONTACT", contact_path, class: "nav-link" %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End of Navigation bar -->

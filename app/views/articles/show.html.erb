@@ -1,8 +1,19 @@
-<h1>Showing article details</h1>
-
-<p><strong>Title: </strong><%= @article.title %></p>
-<p><strong>Description: </strong><%= @article.description %></p>
-
-<%= button_to 'Edit article', edit_article_path(@article), method: :get%> <br>
-<%= button_to 'Delete', article_path(@article), method: :delete, onclick: "return confirm('Confirm?')" %><br>
-<%= button_to 'All articles', articles_path, method: :get %>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 mt-4">
+            <div class="card text-center shadow mb-5">
+            <div class="card-body">
+                <div class="imgContainer">
+                    <img class="card-img-top img-fluid" src="<%= (url_for(@article.image)) %>">
+                    <div class="overlay"></div>
+                </div>
+                <h3 class="card-title mt-2"><%= @article.title %></h3>
+                <div class="card-text mt-4 mb-4"><%= simple_format(@article.description) %></div>
+            </div>
+            <div class="card-footer text-muted">
+                <small>Created <%= time_ago_in_words(@article.created_at) %> ago</small>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

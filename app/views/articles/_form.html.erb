@@ -1,15 +1,33 @@
 <%# use article model to fill in the form entries with the article data being edited and submit to update action%>
-<%= form_with(model: @article, local: true, data: { turbo: false })  do |f| %>
-    <p>
-        <%= f.label :title %><br/>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :description %><br/>
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
+<div class="container">
+    <div class="row justify-content-center text-center">
+        <div class=col-8>
+            <%= form_with(model: @article, class: "shadow p-3 mb-3 bg-info", local: true, data: { turbo: false })  do |f| %>
+            <div class="form-group row">
+                <%= f.label :title, class: "col-2 col-form-label text-light" %>
+                <div class="col-8">
+                    <%= f.text_field :title, class: "form-control shadow text-light", placeholder: "Title of article" %>
+                </div>
+            </div>
 
-<% end %>
+            <div class="form-group mb-3 row">
+                <%= f.label :description, class: "col-2 col-form-label text-light" %>
+                <div class="col-8"> 
+                    <%= f.text_area :description, rows: 10, class: "form-control shadow text-light", placeholder: "Article description" %>
+                </div>
+            </div>
+
+            <div class="form-group mb-3 row justify-content-center text-center">
+                <div class="col-8">
+                    <%= f.file_field :image, accept: 'image/png, image/gif, image/jpeg' %></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <%= f.submit class: "btn btn-md btn-form" %>
+            </div>
+            <% end %>
+        </div>
+        <%= link_to 'Cancel and return to all articles', articles_path, class: "text-muted" %>
+    </div>
+</div> 
