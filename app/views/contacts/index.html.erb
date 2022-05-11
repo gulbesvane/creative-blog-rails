@@ -1,0 +1,35 @@
+<%# use article model to fill in the form entries with the article data being edited and submit to update action%>
+<div class="container">
+    <div class="row justify-content-center text-center">
+        <div class=col-8>
+            <%= form_with(model: @contact, class: "shadow p-3 mb-3 bg-info", local: true, data: { turbo: false })  do |f| %>
+            <div class="form-group row">
+              <%= f.label :name, class: "col-2 col-form-label text-light" %>
+              <div class="col-8">
+                <%= f.text_field :name, required: true, class: "form-control shadow text-light", placeholder: "Your name:" %>
+              </div>
+            </div>
+
+            <div class="form-group mb-3 row">
+              <%= f.label :email, class: "col-2 col-form-label text-light" %>
+              <div class="col-8"> 
+                <%= f.text_field :email, required: true, class: "form-control shadow text-light", placeholder: "Your email:" %>
+              </div>
+            </div>
+
+            <div class="form-group mb-3 row">
+              <%= f.label :message, required: true, class: "col-2 col-form-label text-light" %>
+              <div class="col-8"> 
+                <%= f.text_area :message, rows: 8, cols: 40, required: true, class: "form-control shadow text-light", 
+                  placeholder: "Your message"%>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <%= f.submit class: "btn btn-md btn-form" %>
+            </div>
+            <% end %>
+        </div>
+        <%= link_to 'Cancel and return to all articles', articles_path, class: "text-muted" %>
+    </div>
+</div> 

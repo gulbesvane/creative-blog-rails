@@ -79,3 +79,7 @@ end
 # using active_storage_validations get to validate image attachement to the form
 gem 'active_storage_validations'
 
+# gem used for contact form implementation
+gem 'mail_form'
+
+

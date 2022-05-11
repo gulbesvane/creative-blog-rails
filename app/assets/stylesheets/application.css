@@ -186,6 +186,11 @@ li{
 }
 
 
+.form-control:focus{
+    box-shadow: 0 0 0 0.1rem #dbad41;
+}
+
+
 /*---------TABLET AND MOBILE SIZE----------*/
 @media all and (max-width: 991px){
 /*---------Nav bar-------------*/

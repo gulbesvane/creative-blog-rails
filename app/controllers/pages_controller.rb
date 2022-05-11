@@ -5,7 +5,4 @@ class PagesController < ApplicationController
     def manager
         @articles = Article.all
     end
-
-    def contact
-    end
 end

@@ -18,3 +18,4 @@ function changeNavColour() {
 window.addEventListener("scroll", () => {
     changeNavColour();
 });
+
