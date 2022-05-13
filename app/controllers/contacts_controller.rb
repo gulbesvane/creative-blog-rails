@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  require 'mail_form'
     def index
         @contact = Contact.new
       end
@@ -7,7 +8,7 @@ class ContactsController < ApplicationController
         @contact = Contact.new(params[:contact])
         @contact.request = request
         if @contact.deliver
-          flash.now[:success] = 'Message sent!'
+          flash.now[:success] = 'Message sent, thank you!'
         else
           flash.now[:error] = 'Could not send message'
           render :index

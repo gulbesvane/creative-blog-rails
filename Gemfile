@@ -76,12 +76,13 @@ group :production do
 
 end
 
-# using active_storage_validations get to validate image attachement to the form
+# add image attachment to the blog entries
 gem 'active_storage_validations'
 
 # gem used for contact form implementation
 gem 'mail_form'
 
+# gem used to store images for the use on Heroku
 gem 'cloudinary'
 
 
