@@ -1,7 +1,11 @@
 class ContactsController < ApplicationController
   require 'mail_form'
     def index
-        @contact = Contact.new
+        
+      end
+          @contact = Contact.new
+      def new
+
       end
     
       def create
