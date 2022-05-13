@@ -82,4 +82,7 @@ gem 'active_storage_validations'
 # gem used for contact form implementation
 gem 'mail_form'
 
+gem 'cloudinary'
+
+
 

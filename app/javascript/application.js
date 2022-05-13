@@ -19,3 +19,5 @@ window.addEventListener("scroll", () => {
     changeNavColour();
 });
 
+require("@rails/activestorage").start()
+
